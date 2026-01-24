@@ -93,8 +93,8 @@ export default function TermsOfService() {
                 <h3 className="pt-4 font-medium text-slate-900">Account Security</h3>
                 <p className="text-sm">
                   You are solely responsible for maintaining the security of your account. We recommend enabling multi-factor authentication. You agree to notify us immediately at{' '}
-                  <a href="mailto:security@keepmore.app" className="font-medium text-emerald-800 underline">
-                    security@keepmore.app
+                  <a href="mailto:harjaap@primedepthlabs.com" className="font-medium text-emerald-800 underline">
+                    harjaap@primedepthlabs.com
                   </a>{' '}
                   if you suspect any unauthorized access.
                 </p>
@@ -260,7 +260,7 @@ export default function TermsOfService() {
               <h2 className="mb-6 font-serif text-2xl font-light text-slate-900">6. AI-Powered Features</h2>
               <div className="space-y-4 text-slate-600">
                 <p className="text-sm">
-                  Our AI financial assistant is powered by Claude, developed by Anthropic. When using AI features:
+                  Our AI financial assistant is powered by Deepseek, developed by Deepseek. When using AI features:
                 </p>
                 <ul className="ml-6 space-y-2 text-sm">
                   <li className="list-disc">
@@ -276,9 +276,9 @@ export default function TermsOfService() {
                     You acknowledge that AI is a tool and should not be your sole basis for financial decisions
                   </li>
                   <li className="list-disc">
-                    Your use of AI features is also subject to Anthropic's{' '}
+                    Your use of AI features is also subject to Deepseek{' '}
                     <a
-                      href="https://www.anthropic.com/legal/consumer-terms"
+                      href="https://cdn.deepseek.com/policies/en-US/deepseek-terms-of-use.html"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="font-medium text-emerald-800 underline"
@@ -367,7 +367,7 @@ export default function TermsOfService() {
                   You may not copy, modify, distribute, sell, or lease any part of our Services without our express written permission.
                 </p>
                 <p className="text-sm">
-                  "KeepMore" and our logo are trademarks of KeepMore Inc. Other trademarks mentioned (Plaid, Anthropic, Claude) are the property of their respective owners.
+                  "KeepMore" and our logo are trademarks of KeepMore Inc. Other trademarks mentioned (Plaid, Deepseek) are the property of their respective owners.
                 </p>
               </div>
             </section>
@@ -468,8 +468,8 @@ export default function TermsOfService() {
                 <h3 className="font-medium text-slate-900">Informal Resolution</h3>
                 <p className="text-sm">
                   Before filing a claim, you agree to contact us at{' '}
-                  <a href="mailto:legal@keepmore.app" className="font-medium text-emerald-800 underline">
-                    legal@keepmore.app
+                  <a href="mailto:harjaap@primedepthlabs.com" className="font-medium text-emerald-800 underline">
+                    harjaap@primedepthlabs.com
                   </a>{' '}
                   to attempt to resolve the dispute informally. We will make good faith efforts to resolve disputes.
                 </p>
@@ -578,26 +578,22 @@ export default function TermsOfService() {
                 <div className="space-y-2 text-sm">
                   <p>
                     <strong>Email:</strong>{' '}
-                    <a href="mailto:legal@keepmore.app" className="text-amber-200 underline">
-                      legal@keepmore.app
+                    <a href="mailto:harjaap@primedepthlabs.com" className="text-amber-200 underline">
+                      harjaap@primedepthlabs.com
                     </a>
                   </p>
                   <p>
                     <strong>Support:</strong>{' '}
-                    <a href="mailto:support@keepmore.app" className="text-amber-200 underline">
-                      support@keepmore.app
+                    <a href="mailto:harjaap@primedepthlabs.com" className="text-amber-200 underline">
+                      harjaap@primedepthlabs.com
                     </a>
                   </p>
                   <p>
                     <strong>Mailing Address:</strong>
                     <br />
-                    KeepMore Inc.
+                    Legal Team
                     <br />
-                    Legal Department
-                    <br />
-                    [Your Address]
-                    <br />
-                    [City, State, ZIP]
+                    D 180 C Miran Square Phase 8 Mohali
                   </p>
                 </div>
               </div>

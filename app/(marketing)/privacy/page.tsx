@@ -208,7 +208,7 @@ export default function PrivacyPolicy() {
                 <div className="rounded-xl border border-stone-200 bg-white p-8">
                   <h3 className="mb-4 text-xl font-medium text-slate-900">4. AI Conversation Data</h3>
                   <p className="mb-4 text-slate-600">
-                    When you use our AI financial assistant (powered by Anthropic's Claude), we collect:
+                    When you use our AI financial assistant (powered by Deepseek), we collect:
                   </p>
                   <ul className="ml-6 space-y-2 text-slate-600">
                     <li className="list-disc">Your questions and messages to the AI</li>
@@ -279,29 +279,29 @@ export default function PrivacyPolicy() {
               </div>
             </section>
 
-            {/* AI and Anthropic */}
+            {/* AI and Deepseek */}
             <section className="rounded-2xl border border-stone-200 bg-white p-10">
               <h2 className="mb-6 font-serif text-2xl font-light text-slate-900">
-                AI-Powered Insights (Anthropic's Claude)
+                AI-Powered Insights (Deepseek)
               </h2>
               <div className="space-y-4 text-slate-600">
                 <p>
-                  Our AI financial assistant is powered by <strong>Claude</strong>, developed by Anthropic. When you interact with our AI:
+                  Our AI financial assistant is powered by <strong>Deepseek</strong>, developed by Deepseek. When you interact with our AI:
                 </p>
                 <ul className="ml-6 space-y-2">
                   <li className="list-disc">
-                    Your financial data and questions are sent to Anthropic's API to generate personalized responses
+                    Your financial data and questions are sent to Deepseek API to generate personalized responses
                   </li>
                   <li className="list-disc">
-                    Anthropic processes your data solely to provide AI services and does not use your data to train their models without explicit consent
+                    Deepseek processes your data solely to provide AI services and does not use your data to train their models without explicit consent
                   </li>
                   <li className="list-disc">
                     Your conversations are encrypted in transit and at rest
                   </li>
                   <li className="list-disc">
-                    Anthropic's privacy practices are governed by their{' '}
+                   Deepseek privacy practices are governed by their{' '}
                     <a
-                      href="https://www.anthropic.com/legal/privacy"
+                      href="https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="font-medium text-emerald-800 underline"
@@ -336,7 +336,7 @@ export default function PrivacyPolicy() {
                       </p>
                       <ul className="ml-4 mt-2 space-y-1 text-sm text-slate-600">
                         <li className="list-disc"><strong>Plaid</strong> - Financial data aggregation and account connectivity</li>
-                        <li className="list-disc"><strong>Anthropic</strong> - AI-powered insights and conversation</li>
+                        <li className="list-disc"><strong>Deepseek</strong> - AI-powered insights and conversation</li>
                         <li className="list-disc"><strong>Cloud hosting providers</strong> - Secure data storage and infrastructure</li>
                         <li className="list-disc"><strong>Analytics providers</strong> - App performance and usage analytics (anonymized)</li>
                         <li className="list-disc"><strong>Payment processors</strong> - Subscription billing (if applicable)</li>
@@ -447,8 +447,8 @@ export default function PrivacyPolicy() {
                     <h4 className="mb-2 font-medium text-slate-900">Delete Your Data</h4>
                     <p className="text-sm text-slate-600">
                       Request deletion of your account and associated data. You can do this in account settings or by contacting us at{' '}
-                      <a href="mailto:privacy@keepmore.app" className="font-medium text-emerald-800 underline">
-                        privacy@keepmore.app
+                      <a href="mailto:harjaap@primedepthlabs.com" className="font-medium text-emerald-800 underline">
+                        harjaap@primedepthlabs.com
                       </a>
                     </p>
                   </div>
@@ -493,8 +493,8 @@ export default function PrivacyPolicy() {
 
                 <p className="pt-4 text-sm text-slate-600">
                   To exercise any of these rights, contact us at{' '}
-                  <a href="mailto:privacy@keepmore.app" className="font-medium text-emerald-800 underline">
-                    privacy@keepmore.app
+                  <a href="mailto:harjaap@primedepthlabs.com" className="font-medium text-emerald-800 underline">
+                    harjaap@primedepthlabs.com
                   </a>
                   . We will respond within 30 days.
                 </p>
@@ -531,8 +531,8 @@ export default function PrivacyPolicy() {
 
                 <p className="text-sm">
                   To exercise these rights, email{' '}
-                  <a href="mailto:privacy@keepmore.app" className="font-medium text-emerald-800 underline">
-                    privacy@keepmore.app
+                  <a href="mailto:harjaap@primedepthlabs.com" className="font-medium text-emerald-800 underline">
+                    harjaap@primedepthlabs.com
                   </a>
                 </p>
               </div>
@@ -569,8 +569,8 @@ export default function PrivacyPolicy() {
               </h2>
               <p className="text-slate-600">
                 KeepMore is not intended for use by individuals under 18 years of age. We do not knowingly collect information from children. If we discover we have collected information from a child under 18, we will delete it promptly. If you believe we have collected information from a child, contact us at{' '}
-                <a href="mailto:privacy@keepmore.app" className="font-medium text-emerald-800 underline">
-                  privacy@keepmore.app
+                <a href="mailto:harjaap@primedepthlabs.com" className="font-medium text-emerald-800 underline">
+                  harjaap@primedepthlabs.com
                 </a>
                 .
               </p>
@@ -596,20 +596,16 @@ export default function PrivacyPolicy() {
                 <div className="space-y-2 text-sm">
                   <p>
                     <strong>Email:</strong>{' '}
-                    <a href="mailto:privacy@keepmore.app" className="text-amber-200 underline">
-                      privacy@keepmore.app
+                    <a href="mailto:harjaap@primedepthlabs.com" className="text-amber-200 underline">
+                      harjaap@primedepthlabs.com
                     </a>
                   </p>
                   <p>
                     <strong>Mailing Address:</strong>
                     <br />
-                    KeepMore Inc.
-                    <br />
                     Privacy Team
                     <br />
-                    [Your Address]
-                    <br />
-                    [City, State, ZIP]
+                    D 180 C Miran Square Phase 8 Mohali
                   </p>
                 </div>
                 <p className="pt-4 text-sm text-slate-300">

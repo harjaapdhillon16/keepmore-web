@@ -129,8 +129,8 @@ export default function SecurityPage() {
                 </p>
                 <p>
                   Email:{' '}
-                  <a href="mailto:security@keepmore.app" className="text-amber-200 underline">
-                    security@keepmore.app
+                  <a href="mailto:harjaap@primedepthlabs.com" className="text-amber-200 underline">
+                    harjaap@primedepthlabs.com
                   </a>
                 </p>
                 <div className="flex items-center gap-2 text-sm text-slate-300">
