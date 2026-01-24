@@ -60,7 +60,7 @@ export default function MarketingPage() {
 
       setSubmitStatus('success')
       setFormData({ name: '', email: '', country: '' })
-      
+
       // Close modal after 2 seconds
       setTimeout(() => {
         setShowWaitlistModal(false)
@@ -85,26 +85,26 @@ export default function MarketingPage() {
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.8 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-white"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-white px-4"
           >
             <div className="text-center">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
-                className="mx-auto mb-12 flex h-20 w-20 items-center justify-center rounded-2xl bg-[#1b3012] shadow-2xl"
+                className="mx-auto mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#1b3012] shadow-2xl sm:mb-12 sm:h-20 sm:w-20"
               >
                 <Image
                   src={logo}
                   alt="KeepMore logo"
                   width={40}
                   height={40}
-                  className="h-10 w-10 object-cover"
+                  className="h-8 w-8 object-cover sm:h-10 sm:w-10"
                   quality={99}
                 />
               </motion.div>
 
-              <div className="flex items-center justify-center gap-4 font-serif text-6xl font-light tracking-tight text-slate-900">
+              <div className="flex flex-col items-center justify-center gap-2 font-serif text-4xl font-light tracking-tight text-slate-900 sm:flex-row sm:gap-4 sm:text-6xl">
                 {words.map((word, index) => (
                   <motion.span
                     key={word}
@@ -299,13 +299,13 @@ export default function MarketingPage() {
                     Understand everything.
                   </span>
                 </h1>
-                
+
                 <p className="max-w-xl text-xl leading-relaxed text-slate-600">
-                  The only app where AI understands both your spending and investments. 
+                  The only app where AI understands both your spending and investments.
                   Be among the first to experience the future of personal finance.
                 </p>
               </div>
-              
+
               <div className="flex items-center gap-4">
                 <button
                   onClick={() => setShowWaitlistModal(true)}
@@ -418,7 +418,7 @@ export default function MarketingPage() {
                 Most apps show you <span className="italic text-slate-400">what</span> you spent.
               </h2>
               <p className="mt-8 text-xl leading-relaxed text-slate-600">
-                We reveal <span className="font-medium text-emerald-800">why</span>, 
+                We reveal <span className="font-medium text-emerald-800">why</span>,
                 predict what's ahead, and connect your spending to wealth building.
               </p>
             </div>
@@ -564,7 +564,7 @@ export default function MarketingPage() {
                             Strategic Insight
                           </p>
                           <p className="mt-2 text-sm leading-relaxed text-amber-800">
-                            Reducing dining by 30% enables an additional $135 monthly investment. 
+                            Reducing dining by 30% enables an additional $135 monthly investment.
                             At 7% annual returns, that's $1,700 in year one.
                           </p>
                         </div>
@@ -636,7 +636,7 @@ export default function MarketingPage() {
                   ))}
                 </div>
                 <blockquote className="font-serif text-3xl font-light italic leading-relaxed text-slate-900">
-                  "Finally, clarity about where my money goes. The AI surfaces insights 
+                  "Finally, clarity about where my money goes. The AI surfaces insights
                   I didn't know to look for."
                 </blockquote>
                 <div className="mt-10 flex items-center justify-center gap-4">
@@ -703,14 +703,14 @@ export default function MarketingPage() {
                     className="h-8 w-8 object-contain"
                   />
                 </div>
-                
+
                 <h2 className="font-serif text-5xl font-light text-white">
                   Be first in line.
                 </h2>
                 <p className="mt-6 text-lg text-slate-300">
                   Join thousands on the waitlist for exclusive early access to KeepMore.
                 </p>
-                
+
                 <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
                   <button
                     onClick={() => setShowWaitlistModal(true)}
@@ -719,7 +719,7 @@ export default function MarketingPage() {
                     Join Waitlist
                   </button>
                 </div>
-                
+
                 <p className="mt-8 text-sm text-slate-400">
                   Launching Q1 2026 • iOS • US & Canada
                 </p>
@@ -749,7 +749,7 @@ export default function MarketingPage() {
                   AI-powered financial clarity. Connect spending to wealth building with conversational intelligence.
                 </p>
               </div>
-              
+
               <div>
                 <h4 className="mb-6 text-sm font-medium uppercase tracking-wider text-slate-900">Product</h4>
                 <ul className="space-y-3 text-sm text-slate-600">
@@ -759,7 +759,7 @@ export default function MarketingPage() {
                 </ul>
               </div>
 
-              
+
               <div>
                 <h4 className="mb-6 text-sm font-medium uppercase tracking-wider text-slate-900">Legal</h4>
                 <ul className="space-y-3 text-sm text-slate-600">
@@ -769,7 +769,7 @@ export default function MarketingPage() {
                 </ul>
               </div>
             </div>
-            
+
             <div className="mt-16 border-t border-stone-200 pt-8 text-center text-sm text-slate-500">
               <p>© 2026 KeepMore. All rights reserved.</p>
               <p className="mt-2">Plaid-secured connections. Bank-level encryption. Your data remains private.</p>
