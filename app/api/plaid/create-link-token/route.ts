@@ -52,8 +52,8 @@ export async function POST(request: Request) {
     language: 'en',
   }
 
-  if (platform === 'ios' && process.env.PLAID_REDIRECT_URI) {
-    linkTokenRequest.redirect_uri = process.env.PLAID_REDIRECT_URI
+  if (platform === 'ios') {
+    linkTokenRequest.redirect_uri = 'https://www.keepmore.finance/plaid'
   }
   if (platform === 'android' && process.env.PLAID_ANDROID_PACKAGE_NAME) {
     linkTokenRequest.android_package_name = process.env.PLAID_ANDROID_PACKAGE_NAME
