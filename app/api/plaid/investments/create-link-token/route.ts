@@ -48,7 +48,7 @@ export async function POST(request: Request) {
     user: { client_user_id: body.userId },
     client_name: 'KeepMore Investments',
     products: [Products.Investments],
-    country_codes: [CountryCode.Us],
+    country_codes: [CountryCode.Us,CountryCode.Ca],
     language: 'en',
   }
 
