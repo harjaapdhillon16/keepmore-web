@@ -1,27 +1,13 @@
-// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { Configuration, PlaidApi, PlaidEnvironments } from 'plaid';
-
+import { plaidClient } from '../../../../lib/plaid';
+import axios from 'axios';
 // Initialize Supabase client
 const supabase = createClient(
   'https://iimlwwmxbaeinfcpqsxp.supabase.co',
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlpbWx3d214YmFlaW5mY3Bxc3hwIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2ODg1MzIyMSwiZXhwIjoyMDg0NDI5MjIxfQ.XpPo_lsDlcVJ3hr1Nfhcu62VTH9W9xPSE_nO_hFTV7M'
-);
-
-// Initialize Plaid client
-const plaidConfig = new Configuration({
-  basePath: PlaidEnvironments.production,
-  baseOptions: {
-    headers: {
-      'PLAID-CLIENT-ID': process.env.PLAIvvD_CLIENT_ID!,
-      'PLAID-SECRET': process.env.PLAID_SECRET!,
-      'Plaid-Version': '2020-09-14',
-    },
-  },
-});
-
-const plaidClient = new PlaidApi(plaidConfig);
+)
 
 interface SyncResult {
   success: boolean;
@@ -62,7 +48,8 @@ function logSection(title: string) {
 
 export async function POST(request: Request) {
   const startTime = Date.now();
-  
+  const { userId } = request.body ? await request.json() : {};
+
   logSection('🚀 PLAID SYNC STARTED');
   console.log(`Start Time: ${new Date().toISOString()}`);
 
@@ -70,7 +57,7 @@ export async function POST(request: Request) {
     // Fetch all Plaid items
     const { data: plaidItems, error: fetchError } = await supabase
       .from('plaid_items')
-      .select('*');
+      .select('*').match({ user_id: userId });
 
     if (fetchError) {
       console.error('❌ Error fetching plaid_items:', fetchError);
@@ -99,7 +86,7 @@ export async function POST(request: Request) {
       console.log(`User ID: ${item.user_id}`);
       console.log(`Institution: ${item.institution_name || 'Unknown'}`);
       console.log(`Item ID: ${item.id}`);
-      
+
       try {
         const [accounts, transactions, recurringTransactions] = await Promise.all([
           syncPlaidAccounts(item),
@@ -134,7 +121,7 @@ export async function POST(request: Request) {
 
       } catch (error: any) {
         console.error(`\n❌ Failed to sync item ${item.id}:`, error.message);
-        
+
         itemResults.push({
           plaidItemId: item.id,
           userId: item.user_id,
@@ -154,7 +141,17 @@ export async function POST(request: Request) {
     console.log(`✅ Succeeded: ${successCount}`);
     console.log(`❌ Failed: ${failureCount}`);
     console.log(`End Time: ${new Date().toISOString()}`);
-
+    const hitInsights = () => axios.post("https://keepmore-api-production.up.railway.app/api/insights/generate", {
+      userId: userId,
+    })
+    const hitEmbeddings = () => axios.post("https://keepmore-api-production.up.railway.app/api/sync-financial-summary/calculate", {
+      userId: userId,
+    })
+    const hitFinancialSummary = () => axios.post("https://keepmore-api-production.up.railway.app/api/embeddings/batch", {
+      userId: userId,
+    })
+    const THREEAPIS = [hitInsights, hitEmbeddings, hitFinancialSummary]
+    Promise.all(THREEAPIS.map(fn => fn().catch(err => console.error('Error hitting post-sync API:', err.message))));
     return NextResponse.json({
       success: true,
       message: 'Plaid sync completed',
@@ -165,13 +162,14 @@ export async function POST(request: Request) {
       itemResults,
     });
 
+
   } catch (error: any) {
     console.error('\n❌ FATAL ERROR:', error);
-    
+
     return NextResponse.json(
-      { 
+      {
         success: false,
-        error: 'Failed to sync data', 
+        error: 'Failed to sync data',
         details: error.message,
         duration: Date.now() - startTime,
       },
@@ -189,7 +187,7 @@ export async function POST(request: Request) {
  */
 async function syncPlaidAccounts(item: any): Promise<SyncResult> {
   console.log('\n💰 SYNCING ACCOUNTS');
-  
+
   try {
     // Fetch accounts from Plaid
     console.log('📡 Calling Plaid accountsGet API...');
@@ -263,11 +261,12 @@ async function syncPlaidAccounts(item: any): Promise<SyncResult> {
  */
 async function syncPlaidTransactions(item: any): Promise<SyncResult> {
   console.log('\n💳 SYNCING TRANSACTIONS');
-  
+
   try {
-    // Calculate date range (last 180 days)
+    // Calculate date range (last 12 months)
+    const LOOKBACK_DAYS = 365;
     const now = new Date();
-    const startDate = new Date(now.setDate(now.getDate() - 180))
+    const startDate = new Date(now.setDate(now.getDate() - LOOKBACK_DAYS))
       .toISOString()
       .split('T')[0];
     const endDate = new Date().toISOString().split('T')[0];
@@ -281,7 +280,7 @@ async function syncPlaidTransactions(item: any): Promise<SyncResult> {
 
     while (hasMore) {
       console.log(`📡 Fetching transactions (offset: ${offset})...`);
-      
+
       const response = await plaidClient.transactionsGet({
         access_token: item.access_token,
         start_date: startDate,
@@ -294,7 +293,7 @@ async function syncPlaidTransactions(item: any): Promise<SyncResult> {
 
       const transactions = response.data.transactions;
       allTransactions = [...allTransactions, ...transactions];
-      
+
       hasMore = response.data.total_transactions > allTransactions.length;
       offset += transactions.length;
     }
@@ -355,7 +354,7 @@ async function syncPlaidTransactions(item: any): Promise<SyncResult> {
 
     for (let i = 0; i < transactionsToUpsert.length; i += BATCH_SIZE) {
       const batch = transactionsToUpsert.slice(i, i + BATCH_SIZE);
-      
+
       const { error: upsertError } = await supabase
         .from('plaid_transactions')
         .upsert(batch, {
@@ -401,21 +400,21 @@ async function syncPlaidTransactions(item: any): Promise<SyncResult> {
  */
 async function syncPlaidRecurringTransactions(item: any): Promise<SyncResult> {
   console.log('\n🔁 SYNCING RECURRING TRANSACTIONS');
-  
+
   try {
     // Fetch recurring transactions from Plaid
     console.log('📡 Calling Plaid transactionsRecurringGet API...');
-    
+
     const response = await plaidClient.transactionsRecurringGet({
       access_token: item.access_token,
     });
 
     console.log('✅ Plaid API response received');
-    
+
     const allStreams = [
       ...(response.data.outflow_streams || [])
     ];
-    
+
     console.log(`📊 Received ${allStreams.length} recurring transaction streams`);
 
     // Check existing streams
@@ -482,13 +481,13 @@ async function syncPlaidRecurringTransactions(item: any): Promise<SyncResult> {
     // Check if recurring transactions are not enabled
     if (error.response?.data?.error_code === 'PRODUCT_NOT_ENABLED') {
       console.log('⚠️  Recurring transactions not enabled for this item');
-      return { 
-        success: true, 
-        count: 0, 
-        message: 'Recurring transactions not enabled' 
+      return {
+        success: true,
+        count: 0,
+        message: 'Recurring transactions not enabled'
       };
     }
-    
+
     console.error('\n❌ Error syncing recurring transactions:', error.message);
     return { success: false, error: error.message };
   }
