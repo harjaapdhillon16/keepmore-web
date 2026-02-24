@@ -668,7 +668,7 @@ export default function MarketingPage() {
                   },
                   {
                     q: 'What powers the AI?',
-                    a: 'Deepseek apis, trained on your actual transaction and investment data. Pattern recognition, cash flow prediction, and contextual advice based on your unique financial situation.',
+                    a: 'Advanced LLM, trained on your actual transaction and investment data. Pattern recognition, cash flow prediction, and contextual advice based on your unique financial situation.',
                   },
                   {
                     q: 'Which institutions are supported?',

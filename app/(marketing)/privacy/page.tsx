@@ -208,7 +208,7 @@ export default function PrivacyPolicy() {
                 <div className="rounded-xl border border-stone-200 bg-white p-8">
                   <h3 className="mb-4 text-xl font-medium text-slate-900">4. AI Conversation Data</h3>
                   <p className="mb-4 text-slate-600">
-                    When you use our AI financial assistant (powered by Deepseek), we collect:
+                    When you use our AI financial assistant , we collect:
                   </p>
                   <ul className="ml-6 space-y-2 text-slate-600">
                     <li className="list-disc">Your questions and messages to the AI</li>
