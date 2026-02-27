@@ -279,34 +279,34 @@ export default function PrivacyPolicy() {
               </div>
             </section>
 
-            {/* AI and Deepseek */}
+            {/* AI and AWS AI models */}
             <section className="rounded-2xl border border-stone-200 bg-white p-10">
               <h2 className="mb-6 font-serif text-2xl font-light text-slate-900">
-                AI-Powered Insights (Deepseek)
+                AI-Powered Insights (AWS AI models)
               </h2>
               <div className="space-y-4 text-slate-600">
                 <p>
-                  Our AI financial assistant is powered by <strong>Deepseek</strong>, developed by Deepseek. When you interact with our AI:
+                  Our AI financial assistant is powered by <strong>AWS AI models</strong>. When you interact with our AI:
                 </p>
                 <ul className="ml-6 space-y-2">
                   <li className="list-disc">
-                    Your financial data and questions are sent to Deepseek API to generate personalized responses
+                    Your financial data and questions are sent to AWS AI models to generate personalized responses
                   </li>
                   <li className="list-disc">
-                    Deepseek processes your data solely to provide AI services and does not use your data to train their models without explicit consent
+                    AWS AI models process your data solely to provide AI services and do not use your data to train models without explicit consent
                   </li>
                   <li className="list-disc">
                     Your conversations are encrypted in transit and at rest
                   </li>
                   <li className="list-disc">
-                   Deepseek privacy practices are governed by their{' '}
+                   AWS AI models privacy practices are governed by the{' '}
                     <a
-                      href="https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html"
+                      href="https://aws.amazon.com/privacy/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="font-medium text-emerald-800 underline"
                     >
-                      Privacy Policy
+                      AWS Privacy Notice
                     </a>
                   </li>
                 </ul>
@@ -336,7 +336,7 @@ export default function PrivacyPolicy() {
                       </p>
                       <ul className="ml-4 mt-2 space-y-1 text-sm text-slate-600">
                         <li className="list-disc"><strong>Plaid</strong> - Financial data aggregation and account connectivity</li>
-                        <li className="list-disc"><strong>Deepseek</strong> - AI-powered insights and conversation</li>
+                        <li className="list-disc"><strong>AWS AI models</strong> - AI-powered insights and conversation</li>
                         <li className="list-disc"><strong>Cloud hosting providers</strong> - Secure data storage and infrastructure</li>
                         <li className="list-disc"><strong>Analytics providers</strong> - App performance and usage analytics (anonymized)</li>
                         <li className="list-disc"><strong>Payment processors</strong> - Subscription billing (if applicable)</li>

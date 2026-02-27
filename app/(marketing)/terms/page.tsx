@@ -260,7 +260,7 @@ export default function TermsOfService() {
               <h2 className="mb-6 font-serif text-2xl font-light text-slate-900">6. AI-Powered Features</h2>
               <div className="space-y-4 text-slate-600">
                 <p className="text-sm">
-                  Our AI financial assistant is powered by Deepseek, developed by Deepseek. When using AI features:
+                  Our AI financial assistant is powered by AWS AI models. When using AI features:
                 </p>
                 <ul className="ml-6 space-y-2 text-sm">
                   <li className="list-disc">
@@ -276,14 +276,14 @@ export default function TermsOfService() {
                     You acknowledge that AI is a tool and should not be your sole basis for financial decisions
                   </li>
                   <li className="list-disc">
-                    Your use of AI features is also subject to Deepseek{' '}
+                    Your use of AI features is also subject to the terms applicable to AWS AI models in the{' '}
                     <a
-                      href="https://cdn.deepseek.com/policies/en-US/deepseek-terms-of-use.html"
+                      href="https://aws.amazon.com/service-terms/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="font-medium text-emerald-800 underline"
                     >
-                      Consumer Terms
+                      AWS Service Terms
                     </a>
                   </li>
                 </ul>
@@ -367,7 +367,7 @@ export default function TermsOfService() {
                   You may not copy, modify, distribute, sell, or lease any part of our Services without our express written permission.
                 </p>
                 <p className="text-sm">
-                  "KeepMore" and our logo are trademarks of KeepMore Inc. Other trademarks mentioned (Plaid, Deepseek) are the property of their respective owners.
+                  "KeepMore" and our logo are trademarks of KeepMore Inc. Other trademarks mentioned (Plaid, AWS) are the property of their respective owners.
                 </p>
               </div>
             </section>
