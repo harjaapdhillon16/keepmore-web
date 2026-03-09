@@ -1,4 +1,3 @@
 {
-  "/api/plaid/exchange-token/route": "app/api/plaid/exchange-token/route.js",
-  "/api/plaid/sync-data/route": "app/api/plaid/sync-data/route.js"
+  "/(marketing)/page": "app/(marketing)/page.js"
 }

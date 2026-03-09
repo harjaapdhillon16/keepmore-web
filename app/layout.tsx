@@ -1,5 +1,5 @@
 import './globals.css'
-import { IBM_Plex_Mono, Manrope, Space_Grotesk } from 'next/font/google'
+import { IBM_Plex_Mono, Manrope, Space_Grotesk, Cormorant_Garamond } from 'next/font/google'
 
 const display = Space_Grotesk({
   subsets: ['latin'],
@@ -17,6 +17,13 @@ const mono = IBM_Plex_Mono({
   weight: ['400', '500'],
 })
 
+const serif = Cormorant_Garamond({
+  subsets: ['latin'],
+  variable: '--font-serif',
+  weight: ['300', '400', '500', '600'],
+  style: ['normal', 'italic'],
+})
+
 export const metadata = {
   title: 'KeepMore',
   description: 'Keep More of What You Earn',
@@ -29,7 +36,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${display.variable} ${body.variable} ${mono.variable} font-body`}>
+      <body className={`${display.variable} ${body.variable} ${mono.variable} ${serif.variable} font-body`}>
         {children}
       </body>
     </html>

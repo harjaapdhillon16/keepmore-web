@@ -18,6 +18,7 @@ const config: Config = {
         display: ['var(--font-display)', 'system-ui', 'sans-serif'],
         body: ['var(--font-body)', 'system-ui', 'sans-serif'],
         mono: ['var(--font-mono)', 'ui-monospace', 'SFMono-Regular'],
+        serif: ['var(--font-serif)', 'Georgia', 'serif'],
       },
       boxShadow: {
         glow: '0 0 0 1px rgba(15, 23, 42, 0.05), 0 18px 40px rgba(15, 23, 42, 0.08)',
