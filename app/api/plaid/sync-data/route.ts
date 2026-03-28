@@ -4,6 +4,11 @@ import { createClient } from '@supabase/supabase-js';
 import { Configuration, PlaidApi, PlaidEnvironments } from 'plaid';
 import { plaidClient } from '../../../../lib/plaid';
 import axios from 'axios';
+
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+export const maxDuration = 300;
+
 // Initialize Supabase client
 const supabase = createClient(
   'https://iimlwwmxbaeinfcpqsxp.supabase.co',
