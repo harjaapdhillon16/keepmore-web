@@ -130,10 +130,6 @@ async function syncUser(request: Request, userId: string): Promise<UserSyncResul
 }
 
 async function handleCronSync(request: Request) {
-  const unauthorizedResponse = getUnauthorizedResponse(request)
-  if (unauthorizedResponse) {
-    return unauthorizedResponse
-  }
 
   const startedAt = Date.now()
   const userIds = await getPlaidUserIds()
